@@ -2,6 +2,7 @@
 
 const databaseService = () => {
 
+    //Base de datos basada en MySQL con un puerto en 3306
     const knex = require('knex')({
         client : 'mysql2',
         connection : {
@@ -15,12 +16,14 @@ const databaseService = () => {
 
     const table = 'puntajes';
 
+    //Conseguir la lista en orden descendente de los puntajes
     const getScoreList = () => {
         return knex(table)
         .select()
         .orderBy('puntaje', 'desc');
     };
 
+    //Guardar un usuario con puntaje
     const createScore = ({usuario, puntaje}) => {
         return knex(table).insert({
             usuario: usuario,

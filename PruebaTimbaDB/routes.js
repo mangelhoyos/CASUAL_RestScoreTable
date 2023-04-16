@@ -11,6 +11,7 @@ module.exports = function(app, databaseService)
             response.json({"response" : "Puntaje añadido satisfactoriamente"});
         }).catch((e) => {
             response.status(500).json(e);
+            console.log(e);
         });
 
     });
